@@ -40,7 +40,29 @@ streamlit run app.py
 
 ## Deployment Instructions
 
-### Deploy on Streamlit Cloud (Recommended)
+### Deploy on Render (FastAPI - Recommended)
+
+The FastAPI version is recommended for production deployment.
+
+1. **Quick Deploy**
+   - Push your code to GitHub
+   - Sign in to [render.com](https://render.com) with GitHub
+   - Click "New +" → "Web Service"
+   - Connect repository: `AryanSing833/fast_api.water`
+   - Render will auto-detect `render.yaml` configuration
+   - Click "Create Web Service"
+
+2. **Manual Deploy**
+   - Follow the detailed guide in [RENDER_DEPLOYMENT.md](RENDER_DEPLOYMENT.md)
+
+3. **API Endpoints**
+   - Health: `https://your-app.onrender.com/health`
+   - Docs: `https://your-app.onrender.com/docs`
+   - Predict: `https://your-app.onrender.com/predict`
+
+### Deploy on Streamlit Cloud (Streamlit App)
+
+For the Streamlit interface:
 
 1. Push your code to GitHub
 2. Visit [share.streamlit.io](https://share.streamlit.io)
