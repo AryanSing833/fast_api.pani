@@ -115,10 +115,34 @@ https://water-quality-api.onrender.com
 
 ### Troubleshooting
 
-#### Build Fails
+#### Build Fails - Python Version Issues
+
+If you see errors like "No matching distribution found for pandas>=2.4.0":
+
+1. **Check Python Version in Render Dashboard**
+   - Go to your service settings
+   - Under "Environment", ensure Python 3.11 is selected
+   - If not available, manually set it in the dashboard
+
+2. **Verify runtime.txt**
+   - Should contain: `python-3.11`
+   - Make sure there are no extra spaces or characters
+
+3. **Manual Python Version Selection**
+   - In Render dashboard: Settings → Environment
+   - Add environment variable: `PYTHON_VERSION=3.11`
+   - Or use build command: `python3.11 -m pip install -r requirements.txt`
+
+4. **Alternative: Use Compatible Versions**
+   - If Python 3.11 isn't available, update `requirements.txt`:
+     - Change `pandas>=1.5.0,<3.0.0` (works with Python 3.8+)
+     - Ensure `runtime.txt` specifies a compatible version
+
+#### Build Fails - General
 - Check that all dependencies are in `requirements.txt`
-- Verify Python version in `runtime.txt` (3.11.0)
-- Check build logs in Render dashboard
+- Verify Python version in `runtime.txt` (should be `python-3.11`)
+- Check build logs in Render dashboard for specific error messages
+- Ensure `water_quality_model.pkl` is committed to the repository
 
 #### Service Won't Start
 - Verify the start command in `Procfile` is correct
